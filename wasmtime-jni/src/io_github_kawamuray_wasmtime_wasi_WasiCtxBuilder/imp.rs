@@ -54,13 +54,13 @@ impl<'a> JniWasiCtxBuilder<'a> for JniWasiCtxBuilderImpl {
         if inherit_stdout != 0 {
             builder = builder.inherit_stdout();
         } else if !stdout_path.is_null() {
-            let file = wasi_utils::open_wasi_file(utils::get_string(env, &stdout_path)?)?;
+            let file = wasi_utils::create_wasi_file(utils::get_string(env, &stdout_path)?)?;
             builder = builder.stdout(Box::new(file));
         }
         if inherit_stderr != 0 {
             builder = builder.inherit_stderr();
         } else if !stderr_path.is_null() {
-            let file = wasi_utils::open_wasi_file(utils::get_string(env, &stderr_path)?)?;
+            let file = wasi_utils::create_wasi_file(utils::get_string(env, &stderr_path)?)?;
             builder = builder.stderr(Box::new(file));
         }
 

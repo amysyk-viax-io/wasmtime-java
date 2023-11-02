@@ -92,7 +92,7 @@ impl<'a> JniWasiCtx<'a> for JniWasiCtxImpl {
     ) -> Result<(), Self::Error> {
         let ctx = interop::get_inner::<WasiCtx>(env, &this)?;
         let path = utils::get_string(env, &path)?;
-        ctx.set_stderr(Box::new(wasi_utils::open_wasi_file(path)?));
+        ctx.set_stderr(Box::new(wasi_utils::create_wasi_file(path)?));
         Ok(())
     }
 
@@ -114,7 +114,7 @@ impl<'a> JniWasiCtx<'a> for JniWasiCtxImpl {
     ) -> Result<(), Self::Error> {
         let ctx = interop::get_inner::<WasiCtx>(env, &this)?;
         let path = utils::get_string(env, &path)?;
-        ctx.set_stdout(Box::new(wasi_utils::open_wasi_file(path)?));
+        ctx.set_stdout(Box::new(wasi_utils::create_wasi_file(path)?));
         Ok(())
     }
 
