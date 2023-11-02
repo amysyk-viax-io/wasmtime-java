@@ -15,7 +15,7 @@ jobs:
       skip_cleanup: true
       on:
         tags: true
-        repo: kawamuray/wasmtime-java
+        repo: amysyk-viax-io/wasmtime-java
   - os: osx
     deploy:
       provider: releases
@@ -27,7 +27,7 @@ jobs:
       skip_cleanup: true
       on:
         tags: true
-        repo: kawamuray/wasmtime-java
+        repo: amysyk-viax-io/wasmtime-java
   - stage: build universal jar
     os: linux
     before_deploy: .travis/build-universal-jar.sh
@@ -40,7 +40,7 @@ jobs:
       skip_cleanup: true
       on:
         tags: true
-        repo: kawamuray/wasmtime-java
+        repo: amysyk-viax-io/wasmtime-java
 before_install:
 - curl --fail -L https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh -o /tmp/install-jdk.sh
 - . /tmp/install-jdk.sh -F 11
